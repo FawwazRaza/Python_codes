@@ -3,7 +3,7 @@ import socket
 def main():
     # Create a UDP socket
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-
+    # Set the socket options to allow quick reuse of the socket
     # Bind the socket to the server address and port
     server_address = ('127.0.0.1', 2000)
     sock.bind(server_address)
@@ -22,7 +22,7 @@ def main():
             sock.sendto(client_message, client_address)
 
         except Exception as e:
-            print(f"An error occurred: {e}")
+            print(f"An error occurred: {e}")            
             break
 
     # Closing the socket
